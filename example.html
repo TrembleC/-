@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <TITLE>example</TITLE>
+    <style type="text/css">
+        #contain p{
+            line-height:30px;font-size:2em;
+            font-family: 'Gotham SSm A','Gotham SSm B',Helvetica,Arial,sans-serif;
+            color: #7bc143;
+        }
+    </style>
+</HEAD>
+
+<BODY>
+
+<div id="contain">
+
+    <p id="content"></p>
+
+</div>
+<script>
+    var m=0;
+    var temp;
+    var arr= [" ","is","Beijing Normal University", "hello world","my", "collage"];
+    function setTime(){
+        var content=document.getElementById("content");
+                content.innerHTML="<p>" +arr[m]+"</p>";
+        temp=arr[0];
+        m++;
+        if(m>0){
+            arr[m-1]=arr[m];
+        }
+        if(m>4){
+            sleep(1000);
+            arr[m]=temp;
+            m=0;
+            return 0;
+        }
+
+    }
+    setInterval("setTime()",80);
+
+    function sleep(n) { //n表示毫秒数
+        var start = new Date().getTime();
+        while (true)
+            if (new Date().getTime() - start > n)
+                break;
+    }
+
+</script>
+
+</BODY>
+</HTML>
